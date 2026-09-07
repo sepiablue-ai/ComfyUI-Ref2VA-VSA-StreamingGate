@@ -1,0 +1,33 @@
+# Model weights & large tensors (Never commit weights)
+*.safetensors
+*.pt
+*.bin
+*.ckpt
+*.onnx
+
+# Media outputs & personal images
+*.mp4
+*.webm
+*.webp
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Logs and profiling outputs
+*.log
+*.jsonl
+vsa_profile*.json
+vsa_reprofile_result.json
+bench_result*.json
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
