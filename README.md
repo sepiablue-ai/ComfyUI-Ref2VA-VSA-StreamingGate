@@ -3,6 +3,10 @@
 MiniMax H3 Reference-to-Video (Ref2VA) 向けの **Streaming VSA INT8** 低VRAMカスタムノードです。  
 A low-VRAM **Streaming VSA INT8** custom node for MiniMax H3 Reference-to-Video (Ref2VA).
 
+> 作者 / Author：かみもと（Kamimoto）｜検証速報 / Quick results：**[X（@sep_is_heim）](https://x.com/sep_is_heim)**｜解説記事 / Write-ups：**[note](https://note.com/sepiablue)**（[記事INDEX / Article index](https://note.com/sepiablue/n/n8e612c619a3e)）
+
+> **より新しい構成 / Newer configuration:** 1088×1920出力でより速いRef2VAとして、[ComfyUI-H3-X2-Stream](https://github.com/sepiablue-ai/ComfyUI-H3-X2-Stream)のノードを使う[さやかベンチマーク](https://sayakabenchmark.pages.dev/) Ref2VA [020](https://sayakabenchmark.pages.dev/benchmarks/ref2va/020-matlow-fused4-sla5-x2vae-int8-stream/workflow.json)があります（544×960で生成、68.9秒）。 / For faster Ref2VA with 1088×1920 output, see Sayaka Benchmark Ref2VA 020 (544×960 sampling, 68.9 s), which uses the ComfyUI-H3-X2-Stream nodes.
+
 ---
 
 ## 1. 概要 / Overview
@@ -392,6 +396,25 @@ Main sparse-path requirements:
 - token count at or above `min_tokens`
 - sigma inside the `start_percent` / `end_percent` window
 - valid MiniMax H3 layout metadata
+
+---
+
+## 作者・関連リポジトリ / Author and related repositories
+
+**日本語:** かみもと（Kamimoto）です。RTX 4070 12GBで、MiniMax H3とComfyUIの高速化・省VRAM化を実測しながら公開しています。
+
+**English:** I'm Kamimoto (かみもと). I measure and publish MiniMax H3 and ComfyUI speed-ups and VRAM reductions on an RTX 4070 12 GB.
+
+- X：[@sep_is_heim](https://x.com/sep_is_heim) — 検証速報 / quick results with step counts, seconds and speed-ups
+- note：[かみもと｜ローカルAI生成](https://note.com/sepiablue) — 解説記事 / write-ups in Japanese（[記事INDEX / Article index](https://note.com/sepiablue/n/n8e612c619a3e)）
+- [さやかベンチマーク / Sayaka Benchmark](https://sayakabenchmark.pages.dev/) — H3ワークフローの速度・画質比較 / speed and quality comparison of H3 workflows
+
+| リポジトリ / Repository | 内容 / What it does |
+|---|---|
+| [ComfyUI-MiniMax-H3-W4A4-VSA](https://github.com/sepiablue-ai/ComfyUI-MiniMax-H3-W4A4-VSA) | Ref2VAの高速化（FC1 W4A4、Streaming VSA） / Ref2VA acceleration with FC1 W4A4 and Streaming VSA |
+| [ComfyUI-H3-X2-Stream](https://github.com/sepiablue-ai/ComfyUI-H3-X2-Stream) | X2 VAEのINT8化と非同期NVENC保存。1088×1920の音声付き5秒動画を約60秒で生成 / INT8 X2 VAE and asynchronous NVENC saving; 5 s 1088×1920 video with audio in about 60 s |
+| [ComfyUI-H3-LBH-X2-Stream](https://github.com/sepiablue-ai/ComfyUI-H3-LBH-X2-Stream) | 低解像度3step＋高解像度1step。14秒動画で約25%短縮 / 3 low-resolution steps + 1 high-resolution step; about 25% faster for 14 s video |
+| [ComfyUI-H3-AudioFirst-X2-Stream](https://github.com/sepiablue-ai/ComfyUI-H3-AudioFirst-X2-Stream) | 音声を先に作って固定し、金属的な響きを抑える2パス生成 / Audio-first two-pass generation that reduces the metallic voice |
 
 ---
 
